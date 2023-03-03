@@ -4,17 +4,11 @@ import PlayerControls from "./PlayerControls";
 
 const Player = () => {
     // const audioElement = useRef(null);
-    const {songs, currentSongIndex,setCurrentSongIndex,nextSongIndex} = useContext(AuthContext)
-    const [isPlaying, setIsPlaying] = useState(false);
+    const {songs, currentSongIndex,setCurrentSongIndex,nextSongIndex,isPlaying,setIsPlaying} = useContext(AuthContext)
+    
 
     console.log("currentsongindex",currentSongIndex)
-    // useEffect(() => {
-    //     if (isPlaying) {
-    //         audioElement.current.play();
-    //     } else {
-    //         audioElement.current.pause();
-    //     }
-    // });
+    
 
      const SkipSong = (forwards = true) => {
          if (forwards) {
@@ -27,7 +21,9 @@ const Player = () => {
             setCurrentSongIndex(() => {
                 let temp = currentSongIndex;
                 temp--;
-
+                if(temp<0){
+                    temp = songs.length -1
+                }
                 return temp%songs.length
             });
         }

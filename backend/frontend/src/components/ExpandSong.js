@@ -29,7 +29,7 @@ const ExpandSong = () => {
           </ul>
           <img src={song.coveralbum} width="330" height="330"/>
           <p></p>
-          <ReactAudioPlayer ref = {audiofile} src={`${song.mp3file}`}  controls style={{width:"500"}} />
+          
           <Like song={song} state={state} setState={setState}/>
           <p>Artist : {song.artistName}</p>
           <p>{song.description}</p>

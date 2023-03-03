@@ -17,6 +17,7 @@ export const AuthProvider = ({children}) =>{
     let [loading,setLoading] = useState(true)
     let [songs,setSongs] = useState([])
     let [likedSongs, setLikedSongs] = useState([])
+    const [isPlaying, setIsPlaying] = useState(false);
 
     const [currentSongIndex,setCurrentSongIndex] = useState(0);
   const [nextSongIndex,setNextSongIndex] = useState((currentSongIndex + 1)%songs.length);
@@ -159,7 +160,9 @@ export const AuthProvider = ({children}) =>{
         currentSongIndex:currentSongIndex,
         setCurrentSongIndex:setCurrentSongIndex,
         nextSongIndex:nextSongIndex,
-        setNextSongIndex:setNextSongIndex
+        setNextSongIndex:setNextSongIndex,
+        isPlaying:isPlaying,
+        setIsPlaying:setIsPlaying
         
     }
     return (

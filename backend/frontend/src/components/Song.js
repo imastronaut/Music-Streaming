@@ -19,14 +19,21 @@ const Song = ({song}) => {
 
 
   const audioRef = useRef(null)
-  const {user,songs,currentSongIndex} = useContext(AuthContext)
+  const {user,songs,currentSongIndex, isPlaying,setIsPlaying,setCurrentSongIndex} = useContext(AuthContext)
   const [state,setState]  = useState(song.likes.filter((like)=>like.id===user.user_id).length?true:false)
-  const canEdit = song.user.id === user.user_id?true:false
-  
- 
+  const canEdit = song.user.id === user.user_id?true:false 
   
   
-  
+  const handleClick = (song)=>{
+    console.log("hanlde c;oedj soif")
+    if(songs[currentSongIndex]===song && isPlaying){
+      setIsPlaying(false)
+    }else{
+      setIsPlaying(true)
+      let index = songs.indexOf(song)
+      setCurrentSongIndex(index)
+    }
+  }
 
 
   return (
@@ -34,8 +41,8 @@ const Song = ({song}) => {
         {song&& <>
           <Card>
           <ul style={{display:"flex"}}>
-            <li><button  className="skip-btn" onClick={() => console.log("cliked")}>
-            {songs[currentSongIndex] === song? && <FontAwesomeIcon icon={faPause} />:<FontAwesomeIcon icon={faPlay}/>}
+            <li><button  className="skip-btn" onClick={(e)=>handleClick(song)}>
+            {(songs[currentSongIndex] === song && isPlaying)?<FontAwesomeIcon icon={faPause} />:<FontAwesomeIcon icon={faPlay}/>}
             </button></li>
             <li><p>{song.name}</p></li>
             <li><Link to={`/song/${song.id}`}><img src={song.coveralbum} width="45" height="50"/></Link></li>

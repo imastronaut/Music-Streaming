@@ -1,6 +1,6 @@
 import { Card } from '@mui/material'
 import React, { useContext, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import {  useNavigate, useParams } from 'react-router-dom'
 import AuthContext from '../contexts/AuthContext'
 import api from '../api/Post'
 
@@ -70,6 +70,7 @@ const Edit = () => {
                <label htmlFor="song">Song</label>
                <input type="file" id="song" name="mp3file" onChange={(e)=>setSongfile(e.target.files[0])} required/><br/>
               <input type="submit" value="Edit and Upload"/>
+              <button onClick={(e)=>navigate("/")}>Back</button>
             </form>
             </center>
            </Card> }

@@ -137,7 +137,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'musicplayer',
         'USER': 'postgres',
-        'PASSWORD': 'password'
+        'PASSWORD': 'divyasree',
         'HOST': 'localhost',
         'PORT': '17280',
     }

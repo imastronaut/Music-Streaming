@@ -1,13 +1,16 @@
-import React, { useContext, useRef, useState } from 'react'
-import ReactAudioPlayer from 'react-audio-player';
+import React, { useContext, useEffect, useRef, useState } from 'react'
 
 import Card from '@mui/material/Card';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Like from './Like';
 import AuthContext from '../contexts/AuthContext';
-import Edit from './Edit';
 import Delete from './Delete';
+import {
+  faPlay,
+  faPause,
+} from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -16,7 +19,7 @@ const Song = ({song}) => {
 
 
   const audioRef = useRef(null)
-  const {user} = useContext(AuthContext)
+  const {user,songs,currentSongIndex} = useContext(AuthContext)
   const [state,setState]  = useState(song.likes.filter((like)=>like.id===user.user_id).length?true:false)
   const canEdit = song.user.id === user.user_id?true:false
   
@@ -31,11 +34,14 @@ const Song = ({song}) => {
         {song&& <>
           <Card>
           <ul style={{display:"flex"}}>
+            <li><button  className="skip-btn" onClick={() => console.log("cliked")}>
+            {songs[currentSongIndex] === song? && <FontAwesomeIcon icon={faPause} />:<FontAwesomeIcon icon={faPlay}/>}
+            </button></li>
+            <li><p>{song.name}</p></li>
             <li><Link to={`/song/${song.id}`}><img src={song.coveralbum} width="45" height="50"/></Link></li>
-            <li><ReactAudioPlayer ref = {audioRef} src={`${song.mp3file}`}  controls/></li>
             <li><p>{song.artistName}</p></li>
             <li><Like song={song} state={state} setState={setState} /></li>
-            {canEdit && <li><Link to={`/edit/${song.id}`}>Edit</Link></li>}
+            {canEdit && <li><Link to={`/edit/${song.id}`}><button>Edit</button></Link></li>}
             {canEdit && <li><Delete id={song.id}/></li>}
           </ul>
         </Card>       

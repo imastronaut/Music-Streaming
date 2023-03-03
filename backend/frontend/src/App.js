@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import AuthContext, { AuthProvider } from './contexts/AuthContext'
@@ -12,13 +12,19 @@ import Sidebar from './components/Sidebar'
 import LikedSongs from './components/LikedSongs'
 import Library from './components/Library'
 import Edit from './components/Edit'
+import Player from './components/Player'
 
 const App = () => {
-  const {user} = useContext(AuthContext)
+  const {user,songs} = useContext(AuthContext)
+  
+  
+  
 
 
   return (
     <div className='App'>
+      
+    
       
       {user && <Sidebar/> }
         <Routes>
@@ -31,6 +37,8 @@ const App = () => {
           <Route path="/liked/" element={<PrivateRoute><LikedSongs/></PrivateRoute>}/>
           <Route path="/edit/:id" element={<PrivateRoute><Edit/></PrivateRoute>}/>
         </Routes> 
+
+        {songs && user && <Player/>}
       
     </div>
   )

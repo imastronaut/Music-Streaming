@@ -18,6 +18,10 @@ export const AuthProvider = ({children}) =>{
     let [songs,setSongs] = useState([])
     let [likedSongs, setLikedSongs] = useState([])
 
+    const [currentSongIndex,setCurrentSongIndex] = useState(0);
+  const [nextSongIndex,setNextSongIndex] = useState((currentSongIndex + 1)%songs.length);
+    
+
 
 
 
@@ -126,6 +130,10 @@ export const AuthProvider = ({children}) =>{
     useEffect(()=>{
         getLikedSongs()
     },[])
+
+
+    //==============================================================================================================================
+    
     
 
     
@@ -148,6 +156,10 @@ export const AuthProvider = ({children}) =>{
         setLikedSongs:setLikedSongs,
         getSongs:getSongs,
         authTokens:authTokens,
+        currentSongIndex:currentSongIndex,
+        setCurrentSongIndex:setCurrentSongIndex,
+        nextSongIndex:nextSongIndex,
+        setNextSongIndex:setNextSongIndex
         
     }
     return (

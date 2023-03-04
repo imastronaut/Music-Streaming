@@ -30,6 +30,10 @@ Now to get frontend working cd into frontend directory by typing
 ```sh
 cd frontend
 ```
+install npm dependencies by typing
+```sh
+npm install --force
+```
 and type npm start to start your frontend
 
 ```sh

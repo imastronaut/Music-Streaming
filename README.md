@@ -38,3 +38,8 @@ npm start
 This App allows you to add,delete and modify music files and 
   
 All music files and images files are stored at frontend/public/songs directory
+
+
+Key Features  --------
+
+For this project I used JWT TOKEN Based Authentication using package for JWT authentication i.e djangorestframework-simplejwt which provides some features as well as a pluggable token blacklist app.

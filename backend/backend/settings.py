@@ -21,7 +21,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=nlqyn@*l^imzzx&d*#u1_@+vz$k+s&#w^l2=uvn8z=54&#jeb'
+import environ,os
+# Initialise environment variables
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -137,7 +146,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'musicplayer',
         'USER': 'postgres',
-        'PASSWORD': 'divyasree',
+        'PASSWORD': os.environ.get('postgrespass'),
         'HOST': 'localhost',
         'PORT': '17280',
     }

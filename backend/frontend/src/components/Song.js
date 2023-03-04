@@ -23,16 +23,29 @@ const Song = ({song}) => {
   
   
   const handleClick = (song)=>{
-  
+
+    
     if(songs[currentSongIndex]===song && isPlaying){
       setIsPlaying(false)
     }else{
-      let index = songs.indexOf(song)
+      const findIndex = (songs,song)=>{
+        for(let i=0;i<songs.length;i++){
+          if(songs[i].id === song.id){
+            return i
+          }
+        }
+        return -1
+      }
+      let index = findIndex(songs,song)
+      console.log("index",index)
       console.log(index)
       setCurrentSongIndex(index)
+      console.log("setcurr",currentSongIndex)
       setIsPlaying(true)
     }
   }
+
+  console.log("setted",currentSongIndex)
 
 
   return (

@@ -25,13 +25,13 @@ const ExpandSong = () => {
         <Card style={{width:"400px"}}>
           <ul>
             <li><BsChevronDoubleDown style={{textAlign:"right"}} onClick={(e)=>navigate("/")}></BsChevronDoubleDown></li>
-            <li><p>{song.name}</p></li>
+            <li><p>SongName : {song.name}</p></li>
           </ul>
           <img src={song.coveralbum} width="330" height="330"/>
           <p></p>
           
           <Like song={song} state={state} setState={setState}/>
-          <p>Artist : {song.artistName}</p>
+          <p>Artist Name : {song.artistName}</p>
           <p>{song.description}</p>
         </Card>
         </center>}

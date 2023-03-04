@@ -1,5 +1,6 @@
 import React from 'react'
 import Song from './Song'
+import Songslist from './Songslist'
 
 const ListSongs = ({songs}) => {
     
@@ -8,13 +9,7 @@ const ListSongs = ({songs}) => {
     <div className='container'>
       {!songs && <p>No songs</p>}
       {songs &&
-      <>
-      <ul>
-      {songs.map((song)=>(
-        <li key={song.id}><Song song={song}/></li>
-      ))}
-      </ul>
-      </>}
+      <Songslist songs={songs}/>}
     </div>
   )
 }

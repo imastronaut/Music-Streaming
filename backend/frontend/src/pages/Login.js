@@ -8,24 +8,27 @@ const Login = () => {
 
   
   return (
-    <div className='container'>
-      <div className='middle' style={{textAlign:"center"}}>
-      <Card>
+    <div className='container'> 
+    <center>
+    <Card className='form' >
       {loginMessage && <p>{loginMessage}</p>}
-      <center>
-      <form className="form" onSubmit={loginUser}>
-        <input type="email" placeholder='email' name="email" required/>
-        <br/>
-        <input type="password" placeholder='Password' name="password" required/>
-        <br/>
-        <button type="submit">Login</button>
+      <form onSubmit={loginUser}>
+        <div className='form-div'>
+          <input type="email" placeholder="email" name="email" required/>
+        </div>
+        <div className='form-div'>
+          <input type="password" placeholder='Password' name="password" required/>
+        </div>
+        <div className='form-div'>
+          <button type="submit">Login</button>
+        </div>
+
       </form>
       <p>Don't have an account? Register <Link to="/register">here</Link></p>
-      </center>
-      </Card>
+    </Card>
+    </center>
+
     </div>
-    </div>
-    
   )
 }
 

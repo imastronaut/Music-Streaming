@@ -1,13 +1,13 @@
 import React,{useState,useRef,useEffect, useContext} from 'react';
 import AuthContext from '../contexts/AuthContext';
+import ExpandSong from './ExpandSong';
 import PlayerControls from "./PlayerControls";
 
 const Player = () => {
     // const audioElement = useRef(null);
     const {songs, currentSongIndex,setCurrentSongIndex,nextSongIndex,isPlaying,setIsPlaying} = useContext(AuthContext)
-    
 
-    console.log("currentsongindex",currentSongIndex)
+    const song = songs[currentSongIndex]
     
 
      const SkipSong = (forwards = true) => {
@@ -17,6 +17,7 @@ const Player = () => {
                temp++;
                 return temp%songs.length;
             });
+            setIsPlaying(true)
         } else {
             setCurrentSongIndex(() => {
                 let temp = currentSongIndex;
@@ -26,18 +27,16 @@ const Player = () => {
                 }
                 return temp%songs.length
             });
+            setIsPlaying(true)
         }
     }
 
     
     return (
-        <div className='container'>
            <div className='player'>
-            {songs && <>
-                This is a Player
-            <PlayerControls SkipSong={SkipSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} song={songs[currentSongIndex]}/>
+            {song && <>    
+            <PlayerControls SkipSong={SkipSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} song={song}/>
             </>}
-        </div>
         </div>
     
   )

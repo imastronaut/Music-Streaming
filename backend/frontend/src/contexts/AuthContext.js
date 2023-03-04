@@ -162,7 +162,8 @@ export const AuthProvider = ({children}) =>{
         nextSongIndex:nextSongIndex,
         setNextSongIndex:setNextSongIndex,
         isPlaying:isPlaying,
-        setIsPlaying:setIsPlaying
+        setIsPlaying:setIsPlaying,
+        getLikedSongs:getLikedSongs
         
     }
     return (

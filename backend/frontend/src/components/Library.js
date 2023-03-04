@@ -11,7 +11,7 @@ const Library = () => {
   return (
     <div className='container'>
       {uploaded.length>0 ? <>
-        This is your library
+        This is your library - songs uploaded by you 
       <ListSongs songs={songs.filter((song)=>String(song.user.id)===String(user.user_id))}/>
       </>:<p>Yup!! No songs go ahead and upload now</p>}
     </div>

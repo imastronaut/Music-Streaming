@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import AuthContext from '../contexts/AuthContext'
+import ListSongs from './ListSongs'
 import Song from './Song'
 
 const LikedSongs = () => {
@@ -9,11 +10,7 @@ const LikedSongs = () => {
   return (
     <div className='container'>
       <p>Liked Songs</p>
-        {likedSongs && <ul>
-            {likedSongs.map((song)=>(
-                <li key={song.id}><Song song={song}/></li>
-            ))}
-        </ul>}
+        {likedSongs && <ListSongs songs={likedSongs}/>}
     </div>
   )
 }

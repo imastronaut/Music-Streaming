@@ -14,6 +14,7 @@ import Library from './components/Library'
 import Edit from './components/Edit'
 import Player from './components/Player'
 
+
 const App = () => {
   const {user,songs} = useContext(AuthContext)
   
@@ -38,7 +39,11 @@ const App = () => {
           <Route path="/edit/:id" element={<PrivateRoute><Edit/></PrivateRoute>}/>
         </Routes> 
 
-        {songs && user && <Player/>}
+        
+
+        
+        <footer>{songs && user && <Player/>}</footer>
+    
       
     </div>
   )

@@ -41,23 +41,30 @@ const Register = () => {
 
   return (
     <div className='container'>
-      <div className='middle'>
-      {message && <p>{message}</p>}
-      <Card>
-      <form className="form" onSubmit={handleSubmit} >
+      <center className='middle'>
+      <Card className='form' style={{width:"400px"}}>
+      <form onSubmit={handleSubmit}>
+        <div className='form-div'>
         <input type="email" autoComplete="off" placeholder='email' name="email" required/>
-        <br/>
+        </div>
+        <div className='form-div'>
         <input type="text" autoComplete="off" placeholder="username" name="username" required/>
-        <br/>
+        </div>
+        <div className='form-div'>
         <input type="password" autoComplete="off" placeholder='Password' name="password" required/>
-        <br/>
+        </div>
+        <div className='form-div'>
         <input type="password" autoComplete="off"  placeholder='Confirm Password' name="Confirmpassword" required/>
-        <br/>
+        </div>
+        <div className='form-div'>
         <button type="submit">Register</button>
+        </div>
       </form>
-      <p>Have an account already? Login <Link to="/login">here</Link></p>
-      </Card>
-    </div>
+      <p>have an account already? Login <Link to="/login">here</Link></p>
+    </Card>
+      
+
+    </center>
     </div>
     
   )

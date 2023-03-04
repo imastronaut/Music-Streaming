@@ -6,7 +6,7 @@ import LikedSongs from './LikedSongs';
 
 const Like = ({song,state,setState}) => {
 
-    const {user,authTokens,likedSongs,setLikedSongs,getSongs} = useContext(AuthContext)
+    const {user,authTokens,likedSongs,setLikedSongs,getSongs,getLikedSongs} = useContext(AuthContext)
     
     
     
@@ -22,9 +22,9 @@ const Like = ({song,state,setState}) => {
         .catch((err)=>console.log(err))
         if(response && response.status === 200){
           setState(true)
-          console.log(response.data)
           let new_liked = [...likedSongs,response.data]
           setLikedSongs(new_liked)
+        
           getSongs()
           
           
@@ -38,6 +38,7 @@ const Like = ({song,state,setState}) => {
         })
         .catch((err)=>console.log(err))
         if(response && response.status === 200){
+          
           setState(false)
           let new_liked = likedSongs.filter((song)=>(song.id)!==id)
           setLikedSongs(new_liked)
@@ -52,7 +53,7 @@ const Like = ({song,state,setState}) => {
     
   return (
     <div>
-      <AiFillHeart  style={{width:"35",height:"35",color:state?"red":"black"}} onClick={(e)=>handleLike(state,song.id)} />
+      <AiFillHeart  style={{width:"35",height:"35",color:state?"red":"white"}} onClick={(e)=>handleLike(state,song.id)}/>
     </div>
   )
 }

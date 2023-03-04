@@ -54,24 +54,36 @@ const AddSong = () => {
 
   return (
     <div className='container'>
-      <Card style={{alignItems:"center",justifyContent:"center"}}>
         <center>
-        <form className="form" onSubmit={handleSubmit}>
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" value={name} onChange={(e)=>setName(e.target.value)} required/><br/>
-          <label htmlFor="decription">Description</label>
-          <textarea type="text" id="decription" value={description} onChange={(e)=>setDescription(e.target.value)}/>
-          <br/>
-          <label htmlFor="artist">Artist Name</label>
-          <input type="text" id="artist" value={artist} onChange={(e)=>setArtist(e.target.value)} required/><br/>
-          <label htmlFor="cover">Cover Album</label>
-          <input type="file" id="cover" name="coverimage" onChange={(e)=>setCover(e.target.files[0])} required/><br/>
-          <label htmlFor="song">Song</label>
-          <input type="file" id="song" name="mp3file" onChange={(e)=>setSong(e.target.files[0])} required/><br/>
-          <input type="submit" value="Upload"/>
-        </form>
+        <Card className='form' style={{width:"400px"}}>
+          <p style={{textAlign:"center"}}><strong>Add a new Song</strong></p>
+            <form onSubmit={handleSubmit}>
+              <div className='form-div'>
+                <label htmlFor="name">Name</label>
+                <input type="text" id="name" value={name} onChange={(e)=>setName(e.target.value)} required/>
+              </div>
+              <div className='form-div'>
+                <label htmlFor="decription">Description</label>
+                <textarea type="text" id="decription" value={description} onChange={(e)=>setDescription(e.target.value)}/>
+              </div>
+              <div className='form-div'>
+                <label htmlFor="artist">Artist Name</label>
+                <input type="text" id="artist" value={artist} onChange={(e)=>setArtist(e.target.value)} required/>
+              </div>
+              <div className='form-div'>
+                <label htmlFor="cover">Cover Album</label>
+                <input type="file" id="cover" name="coverimage" onChange={(e)=>setCover(e.target.files[0])} required/>
+              </div>
+              <div className='form-div'>
+                <label htmlFor="song">Song</label>
+                <input type="file" id="song" name="mp3file" onChange={(e)=>setSong(e.target.files[0])} required/>
+              </div>
+              <div className='form-div'>
+                <button type="submit">Upload</button> 
+              </div>
+            </form>
+        </Card>
         </center>
-      </Card>
     </div>
   )
 }

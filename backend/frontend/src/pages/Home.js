@@ -20,8 +20,10 @@ const Home = () => {
 
   return (
     <div className='container'>
-      <p style={{weight:"40",margin:"20px"}}>Todays Awesome songs</p>    
-        <ListSongs songs={songs} />
+      <p style={{weight:"40",margin:"20px"}}>Todays Awesome songs</p>   
+      {songs && <ListSongs songs={songs} />} 
+      {!songs && <p>No songs </p>}
+        
       {/* <Player songs={songs} currentSongNo={currentSongNo} setCurrentSongNo={setCurrentSongNo} nextSongIndex={nextSongIndex}/> */}
       
     </div>
